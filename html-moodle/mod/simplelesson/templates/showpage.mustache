@@ -1,0 +1,78 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{!
+    @template mod_simplelesson/showpage
+    Moodle renders a simplelesson page
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * title String a page title.
+    * content String of html code the formatted module intro.
+    * ispreview boolean true if this is a preview
+    * isattempt boolean true if this is an attempt
+    * canmanage true if user has the capability to manage the lesson
+
+    Example context (json):
+        {
+         "name": "My heading",
+         "content": "<p>My html content</p>"
+         "ispreview": "true",
+         "isattempt": "true",
+         "canmanage": "true"
+        }
+}}
+<div class="card">
+<div class="card">
+  <div class="card-body">
+    {{#pageindex}}
+      <div class="float-right">
+        <h5>{{#str}}page_index_header, simplelesson{{/str}}</h5>
+          <nav class="navbar">
+            <ul class="navbar-nav">
+              {{#pagelinks}}
+                <li class="nav-item">{{{.}}}</li>
+              {{/pagelinks}}
+            </ul>
+          </nav>
+      </div>
+    {{/pageindex}}
+    <h2 class="card-title">{{title}}</h2>
+      {{{content}}}
+  </div>
+  {{#pagehasquestion}}
+    <div class="card-footer">
+      {{#ispreview}}
+        {{#str}}question_placeholder, simplelesson{{/str}}<br />
+        {{#canmanage}}
+          <a href="{{{questionpreviewurl}}}">{{#str}}preview_question, simplelesson{{/str}}</a>
+        {{/canmanage}}
+      {{/ispreview}}
+      {{^ispreview}}
+        {{> mod_simplelesson/question_form}}
+      {{/ispreview}}
+    </div>
+  {{/pagehasquestion}}
+  {{> mod_simplelesson/navigation}}
+</div>
+{{#canmanage}}
+    {{> mod_simplelesson/managepage}}
+    {{> mod_simplelesson/managelesson}}
+{{/canmanage}}
+</div>

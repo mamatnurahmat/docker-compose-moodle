@@ -1,0 +1,120 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/add_block_body
+
+    Template for the body of the add block modal.
+
+    Context variables required for this template:
+    * blocks - list of blocks containing name and title
+    * url - base url for links back to same page.
+
+    Example context (json):
+    {
+        "blocks" : [ { "name": "test", "title": "Test block" } ],
+        "url" : "?a=b"
+    }
+
+}}
+
+<div class="d-flex flex-column flex-gap-6">
+
+  <div class="alert  bg-success alert-dismissible fade show text-white updateinfoalert d-none" role="alert">
+    <span class="updateinfotext">All remui blocks are upto date</span>
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true" class="text-white">&times;</span>
+     </button>
+  </div>
+  <div class="modal-subheader bg-white d-flex justify-content-between flex-gap-8 add-block-filters-wrapper">
+    <div class="edw-tabs-navigation mb-0 flex-grow-1 left-filters">
+        <ul class="nav nav-tabs m-0" id="epbTab" role="tablist">
+          <li class="nav-item " role="presentation">
+              <a class="nav-link edwiseradvancedblocktab active" id="block-tab" data-toggle="tab" href="#blocktab" role="tab" aria-controls="blocktab" aria-selected="true">{{#str}}remuiblocks, local_edwiserpagebuilder{{/str}}</a>
+          </li>
+
+          <li class="nav-item " role="presentation">
+              <a class="nav-link edwmoodleblockstab loadpagelayouts" id="moodleblock-tab" data-toggle="tab" href="#moodleblocktab" role="tab" aria-controls="moodleblocktab">{{#str}}moodleblocks, local_edwiserpagebuilder{{/str}}</a>
+          </li>
+        </ul>
+    </div>
+    <div class="d-flex flex-gap-8 align-items-center justify-content-between right-filters">
+        <div class="action-buttons-modal">
+          <button type="button" class="btn btn-secondary update updateblocklist" data-action="updateblocklist" aria-label="Update Block List" title="{{#str}}updateblocklistonly, local_edwiserpagebuilder{{/str}}">
+             <i class="fa fa-download mr-1"></i>
+              <span>{{#str}}Checkforupdate, local_edwiserpagebuilder{{/str}}</span>
+          </button>
+
+          <input type="hidden" name="edwpageurl" value="{{edwpageurl}}">
+        </div>
+        <div class="view-btn-wrapper  align-items-center">
+          <a href="#" class="add-block-grid-view viewbtn text-decoration-none active"><span class="edw-icon edw-icon-Card-View"></span></a>
+          <a href="#" class="add-block-list-view viewbtn text-decoration-none"><span class="edw-icon edw-icon-List-View-08"></span></a>
+      </div>
+    </div>
+</div>
+{{#isadmin}}
+{{#pbfpluginexist}}
+{{#edwpbfnotenable}}
+<div class="alert alert-info alert-dismissible fade show alerthandler" role="alert">
+  {{#str}}epbfpluginexistinfo,local_edwiserpagebuilder{{/str}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{{/edwpbfnotenable}}
+{{/pbfpluginexist}}
+{{^pbfpluginexist}}
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+ {{#str}}epbfpluginnotexistinfo,local_edwiserpagebuilder{{/str}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{{/pbfpluginexist}}
+{{/isadmin}}
+<div class="tab-content" id="epbTabContent">
+      <div class="tab-pane  advancedblocktab active show" id="blocktab" role="tabpanel" aria-labelledby="block-tab">
+        <div class="list-group addblock-modal-body blocks-list">
+          <div class="tab-content">
+            <div class=" block-cards default-blocks  default-blocks-wrapper grid-view">
+                {{> local_edwiserpagebuilder/block_card }}
+            </div>
+            <div class="row page-cards m-auto"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane  moodleblocktab" id="moodleblocktab" role="tabpanel" aria-labelledby="moodleblock-tab">
+        <div class="list-group addblock-modal-body blocks-list">
+          <div class="tab-content">
+            <div class=" block-cards default-blocks  default-blocks-wrapper grid-view">
+                {{> local_edwiserpagebuilder/block_card }}
+            </div>
+            <div class="row page-cards m-auto"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane " id="pagelayout" role="tabpanel" aria-labelledby="pagelayout-tab">
+        <div class="list-group addpage-modal-body pages-list">
+          <div class="spinner-border transition-center" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>

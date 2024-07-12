@@ -1,0 +1,58 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{!
+    @template mod_simplelesson/managepage
+    Renders the simplelesson page editing buttons
+
+    Context variables required for this template:
+    * canmanage boolean flag indicating page editing buttons can be shown.
+    * editpageurl string of formatted html representing a url
+    * deletepageurl string of formatted html representing a url
+    * canaddquestion boolean flag indicating question adding button can be shown.
+    * addquestionurl string of formatted html representing a url
+    * deletequestion boolean flag indicating delete page button can be shown.
+    * deletequestionurl string of formatted html representing a url
+
+    Example context (json):
+     {
+      "canmanage": true,
+      "editpageurl": "https://yourmoodle/mod/yourmod/somepage.php?id=1",
+      "deletepageurl": "https://yourmoodle/mod/yourmod/somepage.php?id=1",
+      "canaddquestion": true,
+      "addquestionurl": "https://yourmoodle/mod/yourmod/somepage.php?id=1",
+      "deletequestion": true,
+      "deletequestionurl": "https://yourmoodle/mod/yourmod/somepage.php?id=1",
+     }
+}}
+<div class="card mt-2">
+  <div class="card-body">
+    <p class="text-info font-weight-bold">{{#str}}manage_pages_here, simplelesson{{/str}}</p>
+    {{#canmanage}}
+      <a href="{{{editpageurl}}}"button type="button" class="btn btn-secondary btn-sm">
+           {{#str}}edit_page, simplelesson{{/str}}</a>
+    <a href="{{{deletepageurl}}}"button type="button" class="btn btn-secondary btn-sm">
+         {{#str}}delete_page_button, simplelesson{{/str}}</a>
+    {{/canmanage}}
+
+    {{#canaddquestion}}
+    <a href="{{{addquestionurl}}}"button type="button" class="btn btn-secondary btn-sm">
+         {{#str}}add_question, simplelesson{{/str}}</a>
+    {{/canaddquestion}}
+    {{#deletequestion}}
+    <a href="{{{deletequestionurl}}}"button type="button" class="btn btn-secondary btn-sm">
+         {{#str}}delete_question, simplelesson{{/str}}</a>
+    {{/deletequestion}}
+  </div>
+</div>

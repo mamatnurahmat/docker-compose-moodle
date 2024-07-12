@@ -1,0 +1,49 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{!
+    @template mod_simplelesson/edit_questions
+    Modal template for selecting question category and behaviour
+
+    Context variables required for this template:
+    * mform String of formatted html representing a Moodle form
+    * qlink String url of the Moodle question bank page
+
+    Example context (json):
+    {
+        "mform": "<form><label>a form</label></form>",
+        "qlinkurl": "simplelesson\question\bank.php"
+    }
+}}
+<!-- Bootstrap Modal W3 schools -->
+<div id="simplelesson_edit_questions_modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+      <h4 class="modal-title">{{#str}}select_category, simplelesson{{/str}}</a></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>{{#str}}question_adding, simplelesson{{/str}}<p>
+        {{{mform}}}
+        <p class="text-left"><a href="{{{qlinkurl}}}">{{#str}}qlinkheader, simplelesson{{/str}}</a></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

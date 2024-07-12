@@ -1,0 +1,33 @@
+{{!
+    @template mod_simplelesson/render_question_form
+    Renders a question on a simplelesson page.
+
+    Context variables required for this template:
+    *actionurl string the script to post form data to
+    *sesskey string the session key
+    *slot int the current question slot in the question usage
+    *starttime int the UNIX time the question was started
+    *question string of HTML representing the question
+    *hasbutton boolean flag representing whether a save button needs to be shown
+    *button string of HTML code representing an action button.
+
+    Example context (json):
+    {
+    }
+}}
+<div class="container-sm">
+  <form id="responseform" method="post", action="{{{actionurl}}}", enctype="multipart/form-data")>
+    <div>
+      <input type="hidden" name="sesskey" value="{{sesskey}}">
+      <input type="hidden" name="slots" value="{{slot}}">
+      <input type="hidden" name="starttime" value="{{starttime}}">
+    </div>
+    <div class="container-sm">
+      {{{question}}}
+      {{#hasbutton}}
+        <p class="text-primary">{{#str}}save_message, mod_simplelesson{{/str}}</p>
+        {{{button}}}
+      {{/hasbutton}}
+    </div>
+  </form>
+</div>

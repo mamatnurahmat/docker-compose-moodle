@@ -1,0 +1,52 @@
+Change Log:
+===========
+
+Version 4.1.3
+=============
+Fix: UI improvements in course progress block, Manage courses block and To do List block.
+
+
+Version 4.1.2
+=============
+
+Tweak - Forum posts will be visible only to the user who posted them. Additionally, the user information and post date of the last post will be visible.
+Tweak - Course progress block messaging modal will be visible to the user.
+
+
+Version 4.1.1
+=============
+
+Fix - Minor Bug fixes.
+Fix - Enrolled users dropdown issue.
+Fix - Pagination label alignment issue.
+Fix - Enrolled users block pie chart size improvements.
+Fix - Manage Courses menu icon click event issue.
+
+Version 4.1.0
+=============
+
+Feature - Updated course analytics block design.
+Fix - Bug fixes from beta version.
+
+Version 4.0.1
+=============
+
+Edwiser RemUI 4.0.4(Beta) Compatible Release.
+
+Feature - New design added for following blocks.
+    1. Course Progress Block
+    2. Enrolled Users Block
+    3. Quiz Attempts Block
+    4. Latest Members Block
+    5. Add Notes Block
+    6. Recent Feedback Block
+    7. Recent Forums Block
+    8. Manage Course Block
+    9. To Do List Block
+
+Tweak - Course Analytics block is disabled.
+
+Version 4.0.0
+=============
+
+Moodle 4.0 compatible version of Edwiser RemUI Block.

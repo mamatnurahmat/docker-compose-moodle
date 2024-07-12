@@ -1,0 +1,121 @@
+// #rtl issues
+.dir-rtl {
+   #conversation-actions-menu {
+      position: absolute;
+      transform: translate3d(138px, 37px, 0px) !important;
+   }
+
+   [data-region="send-message-txt"] {
+      text-align: right;
+   }
+   .maincalendar{
+      .header {
+         .dropdown-menu.show {
+            transform: translate3d(4px, 46px, 0px) !important;
+            width: fit-content;
+            li{
+               width: unset;
+            }
+         }
+      }
+   }
+   .calendarwrapper {
+      .calendar-controls {
+
+         .edw-icon-Left-Arrow,
+         .edw-icon-Right-Arrow {
+            display: block;
+            transform: rotate(180deg);
+         }
+      }
+   }
+
+   .dashboard-card {
+      .dropdown-menu.dropdown-menu-right {
+         transform: translate3d(0px, 24px, 0px) !important;
+      }
+   }
+
+   .pagination {
+      .page-item {
+         .page-link {
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+         }
+
+         &:first-child .edw-icon,
+         &:last-child .edw-icon {
+            transform: rotate(180deg);
+         }
+      }
+   }
+
+   #page-footer {
+      .popover {
+         transform: translate3d(220px, -406px, 0px) !important;
+      }
+   }
+
+   .edw-icon-Square-Arrow_left:before {
+      content: "{";
+   }
+   .edw-icon-Show:before{
+      content:"(" ;
+   }
+   .edw-icon-Shortcut:before{
+      content:")" ;
+   }
+   .edw-icon-Preferences::before{
+      content: "]";
+   }
+   .edw-icon-Private-Files::before{
+      content: "[";
+   }
+   .edw-icon-Time:before{
+      content: ">";
+   }
+   .edw-icon-Todo-list::before{
+      content: "<";
+   }
+   .edw-icon-Square-Arrow_Right,
+   .edw-icon-Square-Arrow_left,
+   .edw-icon-Right-Arrow,
+   .edw-icon-Left-Arrow,
+   .fa-angle-right,
+   .fa-angle-left,
+   .fa-arrow-left,
+   .fa-arrow-right {
+      display: block;
+      transform: rotate(180deg);
+   }
+   #feedback-canvas{
+      position: relative;
+   }
+   #feedback-highlighter{
+      transform: translate(-50%,-50%);
+      right: unset;
+      left: 50%;
+   }
+   .available-courses.button-container{
+      display: flex;
+      justify-content: center;
+      flex-direction: row-reverse;
+      .edw-icon-Right-Arrow,
+      .edw-icon-Left-Arrow{
+         display: block !important;
+         transform: rotate(0deg) !important;
+      }
+  }
+
+   .block_remuiblck{
+      #courseprogress{
+         .progress-percent{
+            margin-left: 0px;
+            margin-right: 50px;
+
+         }
+      }
+   }
+}
